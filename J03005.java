@@ -1,4 +1,3 @@
-// test dung nop bi wa
 import java.util.*;
 
 public class J03005 {
@@ -19,15 +18,16 @@ public class J03005 {
         s = chuanHoa(s);
         String[] words = s.split("\\s+");
         if (words.length == 1) {
-            return words[0] + ", ";
+            return words[0] ;
         }
         StringBuilder ten = new StringBuilder();
-        ten.append(words[words.length - 2]).append(" ");
+        int tmp = words.length;
+        for (int i = tmp - 1; i >= 2; i--) {
+            ten.append(words[words.length - i]).append(" ");
+        }
         ten.append(words[words.length - 1]);
         StringBuilder ho = new StringBuilder();
-        for (int i = 0; i < words.length - 2; i++) {
-            ho.append(words[i]).append(" ");
-        }
+        ho.append(words[0]).append(" ");
         return ten.toString().trim() + ", " + ho.toString().trim().toUpperCase();
     }
 

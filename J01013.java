@@ -1,30 +1,32 @@
-//TLE
-import java.util.*;
+import java.util.Scanner;
 
 public class J01013 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int a = sc.nextInt();
-        int sum = 0;
-        for (int i = 0; i < a; i++) {
-            int n = sc.nextInt();
-            int S = 0;
-            int sqr = (int) Math.sqrt(n);
-            for (int j = 2; j <= sqr; j++) {
-                if (n % j == 0) {
-                    while (n % j == 0) {
-                        S += j;
-                        n /= j;
+    public static final int MAX = 2000000;
+    public static int[] a = new int[MAX + 1];
+    public static void check() {
+        for (int i = 2; i <= MAX; i++) {
+            if (a[i] == 0) {
+                for (int j = i; j <= MAX; j += i) {
+                    int temp = j;
+                    while (temp % i == 0) {
+                        a[j] += i;
+                        temp /= i;
                     }
-                    sqr = (int) Math.sqrt(n);
                 }
             }
-            if (n > 1) {
-                S += n;
-            }
-            sum += S;
         }
-        System.out.println(sum);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        check(); 
+        int N = sc.nextInt();
+        long res = 0;  
+        while (N-- > 0) {
+            int num = sc.nextInt();
+            res += a[num]; 
+        }
+        System.out.println(res);
         sc.close();
     }
 }
