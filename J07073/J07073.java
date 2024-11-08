@@ -3,7 +3,7 @@ import java.util.*;
 import java.io.*;
 public class J07073 {
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner sc = new Scanner(new File("MONHOC.in"));
+        Scanner sc = new Scanner(new File("DATA.in"));
         List<MonHoc> mh = new ArrayList<>();
         int N = Integer.parseInt(sc.nextLine());
         while (N-- > 0) {

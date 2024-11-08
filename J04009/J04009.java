@@ -1,7 +1,8 @@
 //WA
 package J04009;
 import java.util.*;
-import java.math.*;
+import static java.lang.Math.sqrt;
+
 public class J04009 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -17,8 +18,7 @@ public class J04009 {
             double n = a[0].distance(a[2]);
             double p = a[1].distance(a[2]);
             if (m + n > p && m + p > n && n + p > m) {
-                double ncv = (m+n+p)/2;
-                double area = Math.sqrt(ncv*(ncv-m)*(ncv-n)*(ncv-p));
+                double area = sqrt((m + n + p) * (m + n - p) * (n + p  - m) * (m + n - p)) / 4;
                 System.out.printf("%.2f\n", area);
             } else {
                 System.out.println("INVALID");
