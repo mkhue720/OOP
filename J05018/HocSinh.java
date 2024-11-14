@@ -32,8 +32,12 @@ public class HocSinh {
     }
 
     public float diemTB() {
-        float dtb = (toan * 2 + tv * 2 + nn + ly + hoa + sinh + su + dia + gdcd + cn) / 12.0f;
-        return (float) (Math.floor(dtb * 10) / 10.0f);
+        float dtb = (toan * 2 + tv * 2 + nn + ly + hoa + sinh + su + dia + gdcd + cn) / 12;
+        return dtb;
+    }
+
+    public String getMsv() {
+        return msv;
     }
 
 
@@ -56,6 +60,6 @@ public class HocSinh {
 
     @Override
     public String toString() {
-        return msv + " " + ten + " " + diemTB() + " " + xepLoai();
+        return msv + " " + ten + " " + String.format("%.1f",diemTB()) + " " + xepLoai();
     }
 }
