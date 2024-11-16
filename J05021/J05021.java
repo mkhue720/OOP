@@ -1,12 +1,11 @@
-package J05020;
+package J05021;
 import java.util.*;
-public class J05020 {
+public class J05021 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = Integer.parseInt(sc.nextLine());
         List <SinhVien> ds = new ArrayList<>();
         Set<String> set = new HashSet<>();
-        while (n-- > 0) {
+        while (!sc.hasNextLine()) {
             String msv = sc.nextLine().trim();
             String ten = sc.nextLine().trim();
             String lop = sc.nextLine().trim();
@@ -17,14 +16,7 @@ public class J05020 {
             }
         }
 
-        Collections.sort(ds, (sv1, sv2) -> {
-            int tmp = sv1.getLop().compareTo(sv2.getLop());
-            if (tmp != 0) {
-                return sv1.getLop().compareTo(sv2.getLop());
-            } else {
-                return sv1.getMsv().compareTo(sv2.getMsv());
-            }
-        });
+        Collections.sort(ds, Comparator.comparing(SinhVien::getMsv));
         for (SinhVien sv : ds) {
             System.out.println(sv);
         }
